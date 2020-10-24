@@ -21,7 +21,7 @@ class AddUserLinkForm(forms.ModelForm):
     def clean_destination_link(self):
         data = self.cleaned_data['destination_link']
         # print(len(data))
-        if len(data) > 50:
+        if len(data) > 255:
             raise ValidationError('Убедитесь, что это значение содержит не более 250 символов (сейчас %s)' % len(data))
         return data
 
