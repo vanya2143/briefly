@@ -1,0 +1,15 @@
+{% extends 'linkCutter/index.html' %}
+    {% block main_section %}
+    <main>
+        <div class="main-page">
+            <p>Сократим все что сможем</p>
+            <p>Дипломная работа по созданию сервиса для сокражения ссылок</p>
+            <div class="about">
+                <span>Перейдите в <a class="" href="{% url 'profile' %}">кабинет пользователя</a> или
+                <a class="" href="{% url 'reg' %}">зарегестрируйтесь</a>
+                чтобы вы могли создавать сокращенные ссылки
+                </span>
+            </div>
+        </div>
+    </main>
+    {% endblock %}

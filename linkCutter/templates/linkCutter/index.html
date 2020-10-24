@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'linkCutter/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'linkCutter/css/user.css' %}">
+    <link rel="stylesheet" href="{% static 'linkCutter/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'linkCutter/css/link_page.css' %}">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" rel="stylesheet" id="font-awesome-5-kit-css">
+</head>
+<body>
+
+    <header>
+        <div class="nav">
+            <div class="logo"><img src="{% static 'linkCutter/img/logo-cat.png' %}" alt="LOGO"></div>
+            <p>Уберем все лишнее</p>
+            <div class="menu">
+                    <a href="{% url 'home' %}">Главная</a>
+                    <a href="{% url 'about' %}">Про нас</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}">Личный кабинет</a>
+                        <a href="{% url 'links-page' %}">Ссылки</a>
+                    {% else %}
+                        <a href="{% url 'user' %}">Войти</a>
+                        <a href="{% url 'reg' %}">Регистрация</a>
+                    {% endif %}
+            </div>
+        </div>
+    </header>
+
+    {% block main_section %}
+    {% endblock %}
+
+    <footer>
+        <p>Все права защищены &copy;</p>
+        <div class="social">
+      <div class="">
+          <a href="https://vk.com" target="_blank"><i class="fab fa-vk"></i></a>
+      </div>
+      <div class="">
+          <a href="https://fb.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      </div>
+      <div class="">
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    </footer>
+
+</body>
+</html>

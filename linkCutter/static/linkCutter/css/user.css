@@ -1,0 +1,72 @@
+/*
+    Описываем стили для страничек логина, регистрации и выхода
+*/
+
+.user {
+    display: flex;
+    width: 390px;
+    height: 600px;
+}
+
+.user .user-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user .user-login h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.user form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 14px;
+}
+
+.user form > input {
+    padding: 15px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+
+.user form br:first-of-type {display: none;}
+
+.user form label {margin: 10px 0;}
+
+.user form > button {
+    padding: 10px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.user .user-reg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user .user-reg form > button {
+    width: 170px;
+    margin-top: 20px;
+}
+
+.user .user-reg form ul.errorlist > li {
+    color: #a54b31;
+}
+
+.exit-page {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}

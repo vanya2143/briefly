@@ -1,0 +1,20 @@
+{% extends 'linkCutter/index.html' %}
+{% block main_section %}
+
+<main>
+    <div class="user">
+        <div class="user-reg">
+        <h2>Регистрация на сайте</h2>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form }}
+          <button class="button" type="submit">Зарегестрироваться</button>
+        </form>
+        <p>Уже зарегестрированы? <a href="{% url 'user' %}">Войти в личный кабинет</a></p>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock main_section %}

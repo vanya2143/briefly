@@ -1,0 +1,37 @@
+{% extends 'linkCutter/index.html' %}
+{% block main_section %}
+    # TODO Сделать попап сообщений
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="#" class="close">✖</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  <main>
+
+    <div class="user">
+      <div class="profile">
+          <h2>Кабинет пользователя</h2>
+          <div class="profile-data">
+            <p>
+              <strong>@{{ user.username }}</strong>
+              <br>
+              <b>Email:</b> {{ user.email }}
+            </p>
+            <a class="button" href="{% url 'exit' %}">Выйти из кабинета</a>
+          </div>
+          <h3>Изменить данные про пользователя</h3>
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ update_user }}
+            {{ profile }}
+            <button class="button" type="submit">Обновить данные</button>
+          </form>
+      </div>
+    </div>
+  </main>
+{% endblock main_section %}

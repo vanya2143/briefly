@@ -1,0 +1,15 @@
+/*
+    Задаем стили для странички с профилем пользователя.
+*/
+
+.profile h2, .profile-data {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile form span {
+    margin: 10px 0;
+}

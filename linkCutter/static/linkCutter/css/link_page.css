@@ -1,0 +1,53 @@
+/*
+    Стили для странички с пользовательскими ссылками
+*/
+
+.link-page {
+    display: flex;
+    width: 390px;
+    height: 600px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link-page h1 {margin-bottom: 15px}
+
+.link-page form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.link-page form label {margin: 15px 0}
+
+.link-page form ul {margin-bottom: 15px}
+
+.link-page form > input {
+    padding: 15px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+
+.link-page form button {
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+.links-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.user_links {
+    align-self: flex-start;
+    margin-top: 15px;
+}

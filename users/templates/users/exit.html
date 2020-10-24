@@ -1,0 +1,9 @@
+{% extends 'linkCutter/index.html' %}
+{% block main_section %}
+  <main>
+      <div class="exit-page">
+        <h2>Вы успешно выйши с аккаунта</h2>
+        <a href="{% url 'user' %}" class="">Войти в личный кабинет снова</a>
+      </div>
+  </main>
+{% endblock main_section %}
