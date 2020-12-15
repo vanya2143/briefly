@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .forms import UserRegistrationFrom, UserUpdateForm, ProfileForm
-from .models import Profile
 
 
 def register(request):
@@ -13,8 +12,6 @@ def register(request):
 
         if form.is_valid():
             new_user = form.save()
-            Profile.objects.create(user=new_user)
-
             username = form.cleaned_data.get('username')
             messages.success(request, f'Аккаунт {username} был создан, введите имя пользователя и пароль для авторизации')
             return redirect('user')

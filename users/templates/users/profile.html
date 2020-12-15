@@ -1,18 +1,6 @@
 {% extends 'linkCutter/index.html' %}
 {% block main_section %}
-    # TODO Сделать попап сообщений
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li class="{{ message.tags }}">
-                {{ message|safe }}
-                <a href="#" class="close">✖</a>
-            </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
   <main>
-
     <div class="user">
       <div class="profile">
           <h2>Кабинет пользователя</h2>

@@ -1,23 +1,34 @@
 {% extends 'linkCutter/index.html' %}
-    {% block main_section %}
+{% block main_section %}
     <main>
         <div class="link-page">
             <h1>Создание ссылок</h1>
-<!--            <div class="add-link">-->
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="button">Создать ссылку</button>
-                 </form>
-<!--            </div>-->
+            <!--            <div class="add-link">-->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="button">Создать ссылку</button>
+            </form>
+            <!--            </div>-->
             <div class="links-block">
                 <h1>Доступные ссылки</h1>
                 <div class="user_links">
                     {% for link in links %}
-                        <p>Ссылка - <a href="{{ link.get_absolute_url }}" target="_blank">{{ link.get_absolute_url }}</a></p>
+                        <p>Ссылка - <a href="{{ link.get_absolute_url }}" target="_blank">{{ link.source_link }}
+                        </a> Переходов: {{ link.clicks }}</p>
+                        <button id="copy">Copy</button>
                     {% endfor %}
                 </div>
             </div>
         </div>
+        <script>
+            function copy() {
+                let copyText = document.querySelector("#input")
+                copyText.select()
+                document.execCommand("copy")
+            }
+
+            document.querySelector("#copy").addEventListener("click", copy)
+        </script>
     </main>
-    {% endblock %}
+{% endblock %}

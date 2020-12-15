@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import AddUserLinkForm
@@ -18,8 +19,9 @@ class UserLinks(LoginRequiredMixin, CreateView):
         page_content = {
             'title': "Ссылки",
             'form': AddUserLinkForm,
-            'links': links
+            'links': links,
         }
+        # print(request.__dict__.get('META').get('REMOTE_ADDR'))
 
         # print(links)
         return render(request, 'linkCutter/links_page.html', page_content)
@@ -30,7 +32,6 @@ class UserLinks(LoginRequiredMixin, CreateView):
         if form.is_valid():
             form.instance.creator = self.request.user
             form.save()
-            # slug = form.cleaned_data['slug']
 
             # Перенаправляем пользователя на только что созданный курс
             return redirect('links-page')
@@ -39,10 +40,11 @@ class UserLinks(LoginRequiredMixin, CreateView):
 
 
 def link_redirect(request, slug):
-    a = Link.objects.filter(source_link=slug).values()[0]
-    # print(a['destination_link'])
+    link = get_object_or_404(Link, source_link=slug)
+    link.clicks += 1
+    link.save()
 
-    return redirect(a['destination_link'])
+    return redirect(link.destination_link)
 
 
 def about_page(request):

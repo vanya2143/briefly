@@ -8,6 +8,7 @@ class Link(models.Model):
     destination_link = models.URLField(max_length=255)
     source_link = models.SlugField(max_length=255, unique=True)
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    clicks = models.IntegerField(default=0)
 
     def __str__(self):
         return self.source_link

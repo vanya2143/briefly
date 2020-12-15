@@ -11,6 +11,32 @@
   outline: none;
 }
 
+#messages {
+    border: 0;
+}
+
+#messages .success {
+    background-color: #9dfd9d;
+    text-align: center;
+    width: 100%;
+    height: inherit;
+    padding: 6px;
+}
+
+#messages .error {
+    background-color: #fd9d9d;
+    text-align: center;
+    width: 100%;
+    height: inherit;
+    padding: 6px;
+}
+
+#messages .success a {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 }
