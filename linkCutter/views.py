@@ -13,7 +13,6 @@ def home_page(request):
 class UserLinks(LoginRequiredMixin, CreateView):
 
     def get(self, request, *args, **kwargs):
-
         links = Link.objects.filter(creator=self.request.user)
 
         page_content = {
@@ -21,9 +20,7 @@ class UserLinks(LoginRequiredMixin, CreateView):
             'form': AddUserLinkForm,
             'links': links,
         }
-        # print(request.__dict__.get('META').get('REMOTE_ADDR'))
 
-        # print(links)
         return render(request, 'linkCutter/links_page.html', page_content)
 
     def post(self, request, *args, **kwargs):

@@ -10,7 +10,9 @@
     align-items: center;
 }
 
-.link-page h1 {margin-bottom: 15px}
+.link-page h1 {
+    margin-bottom: 15px
+}
 
 .link-page form {
     display: flex;
@@ -18,9 +20,13 @@
     width: 100%;
 }
 
-.link-page form label {margin: 15px 0}
+.link-page form label {
+    margin: 15px 0
+}
 
-.link-page form ul {margin-bottom: 15px}
+.link-page form ul {
+    margin-bottom: 15px
+}
 
 .link-page form > input {
     padding: 15px;
@@ -51,3 +57,31 @@
     align-self: flex-start;
     margin-top: 15px;
 }
+
+.user_links .copy-button {
+    border-radius: 5px;
+    padding: 7px;
+    border: 1px solid silver;
+    background-color: #a54b31;
+    font-size: 14px;
+    color: white;
+    /*transition: all 300ms ease;*/
+}
+
+.user_links .copy-button:hover {
+    -o-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+}
+
+.user_links table:first-child  {
+    padding: 10px;
+}
+
+.user_links table tr td {
+    padding: 5px;
+    text-align: center;
+}
+

@@ -12,23 +12,42 @@
             <!--            </div>-->
             <div class="links-block">
                 <h1>Доступные ссылки</h1>
+                <span>Перейдите по ссылке или скопируйте в буфер обмена нажав на кнопку copy</span>
                 <div class="user_links">
-                    {% for link in links %}
-                        <p>Ссылка - <a href="{{ link.get_absolute_url }}" target="_blank">{{ link.source_link }}
-                        </a> Переходов: {{ link.clicks }}</p>
-                        <button id="copy">Copy</button>
-                    {% endfor %}
+                    <table>
+                        <tr>
+                            <th>Ссылка</th>
+                            <th>Переходов</th>
+                            <th>Копировать</th>
+                        </tr>
+                        {% for link in links %}
+                            <tr>
+                                <td>
+                                    <a href="{{ link.get_absolute_url }}" domain="{{ request.META.HTTP_HOST }}"
+                                       target="_blank">{{ link.source_link }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ link.clicks }}
+                                </td>
+                                <td>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
         </div>
         <script>
-            function copy() {
-                let copyText = document.querySelector("#input")
-                copyText.select()
-                document.execCommand("copy")
-            }
+            function copyToClipboard(element) {
+                let node = element.parentNode.parentNode
+                let elem = node.querySelector('a')
+                let url = 'http://' + elem.getAttribute('domain') + elem.getAttribute('href')
 
-            document.querySelector("#copy").addEventListener("click", copy)
+                console.log(url)
+                navigator.clipboard.writeText(url)
+            }
         </script>
     </main>
 {% endblock %}
