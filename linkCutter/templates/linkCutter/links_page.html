@@ -12,25 +12,25 @@
             <!--            </div>-->
             <div class="links-block">
                 <h1>Доступные ссылки</h1>
-                <span>Перейдите по ссылке или скопируйте в буфер обмена нажав на кнопку copy</span>
+                <span>Перейдите по ссылке или скопируйте ee нажав на кнопку copy</span>
                 <div class="user_links">
                     <table>
                         <tr>
-                            <th>Ссылка</th>
-                            <th>Переходов</th>
-                            <th>Копировать</th>
+                            <th class="td-link">Ссылка</th>
+                            <th class="td-clicks">Переходов</th>
+                            <th class="td-button">Копировать</th>
                         </tr>
                         {% for link in links %}
                             <tr>
-                                <td>
+                                <td class="td-link">
                                     <a href="{{ link.get_absolute_url }}" domain="{{ request.META.HTTP_HOST }}"
                                        target="_blank">{{ link.source_link }}
                                     </a>
                                 </td>
-                                <td>
+                                <td class="td-clicks">
                                     {{ link.clicks }}
                                 </td>
-                                <td>
+                                <td class="td-button">
                                     <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
                                 </td>
                             </tr>
@@ -45,7 +45,7 @@
                 let elem = node.querySelector('a')
                 let url = 'http://' + elem.getAttribute('domain') + elem.getAttribute('href')
 
-                console.log(url)
+                console.log('Copied: ' + url)
                 navigator.clipboard.writeText(url)
             }
         </script>
