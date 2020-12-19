@@ -13,16 +13,14 @@ class AddUserLinkForm(forms.ModelForm):
 
     def clean_source_link(self):
         data = self.cleaned_data['source_link']
-        # print(data)
         if Link.objects.filter(source_link=data):
             raise ValidationError('Сокращенная ссылка с таким адресом уже существует')
         return data
 
     def clean_destination_link(self):
         data = self.cleaned_data['destination_link']
-        # print(len(data))
         if len(data) > 255:
-            raise ValidationError('Убедитесь, что это значение содержит не более 250 символов (сейчас %s)' % len(data))
+            raise ValidationError(f'Убедитесь, что это значение содержит не более 255 символов (сейчас {len(data)})')
         return data
 
     class Meta:
