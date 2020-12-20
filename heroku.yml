@@ -1,6 +1,6 @@
 setup:
   config:
-    DJANGO_ALLOWED_HOSTS: my-django-linkcutter.herokuapp.com
+    DJANGO_ALLOWED_HOSTS: 'my-django-linkcutter.herokuapp.com'
     DEBUG: 0
 
 build:
