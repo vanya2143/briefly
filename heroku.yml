@@ -1,13 +1,13 @@
 build:
   docker:
     web: Dockerfile.heroku
+    config:
+      DJANGO_ALLOWED_HOSTS: my-django-linkcutter.herokuapp.com
   config:
     DEBUG: 0
 run:
   web: gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
 release:
   image: web
-  config:
-    DJANGO_ALLOWED_HOSTS: my-django-linkcutter.herokuapp.com
   command:
     - python manage.py collectstatic --noinput
