@@ -2,7 +2,6 @@ build:
   config:
     DJANGO_ALLOWED_HOSTS: 'my-django-linkcutter.herokuapp.com'
   docker:
-#    web: Dockerfile.heroku
     web: Dockerfile
 run:
   web: gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
