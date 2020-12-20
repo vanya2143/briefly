@@ -1,7 +1,6 @@
 build:
   docker:
     web: Dockerfile.heroku
-#    web: Dockerfile
   config:
     DEBUG: 0
 run:
