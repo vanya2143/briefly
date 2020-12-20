@@ -1,7 +1,7 @@
 build:
   config:
-    SECRET_KEY: 'your_super_secret_file'
-    DJANGO_ALLOWED_HOSTS: my-django-linkcutter.herokuapp.com
+    SECRET_KEY: 'your_super_secret_key'
+    DJANGO_ALLOWED_HOSTS: 'my-django-linkcutter.herokuapp.com'
     DEBUG: 0
   docker:
     web: Dockerfile.heroku
