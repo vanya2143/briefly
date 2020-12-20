@@ -124,8 +124,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 LOGIN_URL = 'user'
 LOGIN_REDIRECT_URL = 'profile'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-
 django_heroku.settings(locals())
