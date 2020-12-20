@@ -5,6 +5,8 @@ build:
   docker:
 #    web: Dockerfile.heroku
     web: Dockerfile
+  command:
+    - python manage.py collectstatic --noinput
 
 run:
   web: gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
