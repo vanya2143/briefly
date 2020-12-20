@@ -23,5 +23,5 @@ RUN \
 RUN python manage.py collectstatic --noinput
 
 # add and run as non-root user
-RUN adduser -D myuser
-USER myuser
+RUN adduser -D app
+USER app
