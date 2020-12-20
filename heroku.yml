@@ -1,11 +1,15 @@
-build:
-  docker:
-    web: Dockerfile.heroku
+setup:
   config:
     DJANGO_ALLOWED_HOSTS: my-django-linkcutter.herokuapp.com
     DEBUG: 0
+
+build:
+  docker:
+    web: Dockerfile.heroku
+
 run:
   web: gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
+
 release:
   image: web
   command:
