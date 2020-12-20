@@ -16,10 +16,10 @@ RUN \
 
 
 # copy entrypoint.sh
-COPY ./entrypoint.sh .
+#COPY ./entrypoint.sh .
 
 # copy project
 COPY . .
 
 # run entrypoint.sh
-#ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
