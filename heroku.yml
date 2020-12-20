@@ -1,6 +1,7 @@
 build:
   docker:
-    web: Dockerfile.heroku
+#    web: Dockerfile.heroku
+    web: Dockerfile
   config:
     DEBUG: 0
 run:
@@ -8,4 +9,4 @@ run:
 release:
   image: web
   command:
-    - python manage.py collectstatic --noinput
+#    - python manage.py collectstatic --noinput
