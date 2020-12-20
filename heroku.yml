@@ -4,6 +4,8 @@ build:
   config:
     DEBUG: 0
 run:
+  config:
+    DJANGO_ALLOWED_HOSTS: my-django-linkcutter.herokuapp.com
   web: gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
 release:
   image: web
