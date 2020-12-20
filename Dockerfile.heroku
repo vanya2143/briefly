@@ -7,7 +7,7 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY . ./app/
+COPY . /app/
 
 RUN \
  apk add --no-cache postgresql-libs && \
