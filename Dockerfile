@@ -24,4 +24,4 @@ COPY . .
 # run entrypoint.sh
 #ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 
-CMD python manage.py migrate
+#CMD python manage.py migrate
