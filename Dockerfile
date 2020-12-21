@@ -7,19 +7,17 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt .
 
-# copy entrypoint.sh
-COPY ./entrypoint.sh .
-
 RUN \
  apk add --no-cache postgresql-libs && \
  apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev python3-dev && \
  pip install --upgrade pip && \
  pip install -r requirements.txt --no-cache-dir && \
- apk --purge del .build-deps && \
- chmod +x /usr/src/app/entrypoint.sh
+ apk --purge del .build-deps
 
 # copy project
 COPY . .
+
+RUN chmod +x /usr/src/app/entrypoint.sh
 
 # run entrypoint.sh
 #ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
