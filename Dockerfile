@@ -27,4 +27,4 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 #ENTRYPOINT ["python"]
 #CMD ["manage.py", "runserver", "0.0.0.0:8000"]
 
-ENTRYPOINT python manage.py runserver 0.0.0.0:$PORT
+ENTRYPOINT gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
