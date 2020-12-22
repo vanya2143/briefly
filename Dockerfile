@@ -6,21 +6,18 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY ./requirements.txt .
+# copy project
+COPY . .
 
 RUN \
  apk add --no-cache postgresql-libs && \
  apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev python3-dev curl && \
  pip install --upgrade pip && \
  pip install -r requirements.txt --no-cache-dir && \
- apk --purge del .build-deps
-
-# copy project
-COPY . .
-
-RUN chmod +x /usr/src/app/entrypoint.sh
+ apk --purge del .build-deps && \
+ chmod +x /usr/src/app/entrypoint.sh
 
 # collect static files
-#RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 
 CMD gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
