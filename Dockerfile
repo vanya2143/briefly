@@ -1,4 +1,5 @@
 FROM python:3.8-alpine
+
 # set work directory
 WORKDIR /usr/src/app
 
@@ -19,5 +20,9 @@ RUN \
 
 # collect static files
 RUN python manage.py collectstatic --noinput
+
+# add and run as non-root user
+RUN adduser -D app
+USER app
 
 CMD gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
