@@ -25,4 +25,4 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 
 #CMD python manage.py migrate
 ENTRYPOINT ["python"]
-CMD ["manage.py", "runserver", "{$PORT}"]
+CMD ["manage.py", "runserver", "0.0.0.0:{$PORT}"]
