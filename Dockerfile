@@ -27,4 +27,7 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 #ENTRYPOINT ["python"]
 #CMD ["manage.py", "runserver", "0.0.0.0:8000"]
 
+# collect static files
+RUN python manage.py collectstatic --noinput
+
 CMD gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
