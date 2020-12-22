@@ -16,4 +16,7 @@ echo "Start"
 python manage.py collectstatic --noinput
 python manage.py migrate
 
+echo $DJANGO_ALLOWED_HOSTS
+echo $SECRET_KEY
+
 exec "$@"
