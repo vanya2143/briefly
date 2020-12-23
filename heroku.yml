@@ -1,6 +1,4 @@
 build:
-#  config:
-#    DJANGO_ALLOWED_HOSTS: 'my-django-linkcutter.herokuapp.com'
   docker:
     web: Dockerfile
 run:
