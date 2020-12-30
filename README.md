@@ -20,6 +20,7 @@ First you must clone project then choice run method
 2. Install and create virtualenv (in the project directory)
     1. Install `pip3 install virtualenv`
     2. Create virtualenv `python3 -m venv .env`
+    3. Install requirements `pip3 install -r requirements.txt`
 
 3. Create a database and run project
     1. Create database `python2 manage.py migrate`
@@ -29,3 +30,4 @@ First you must clone project then choice run method
 
 1. Go to the project directory
 2. Run command `docker-compose up --build`
+3. Run migrations `docker-compose run web python3 manage.py migrate`
