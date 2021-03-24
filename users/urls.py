@@ -1,6 +1,7 @@
 from django.urls import path
-from users import views as userViews
 from django.contrib.auth import views as authViews
+
+from . import views as userViews
 
 urlpatterns = [
     path('reg/', userViews.register, name='reg'),

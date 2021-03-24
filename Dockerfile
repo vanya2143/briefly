@@ -25,4 +25,5 @@ RUN python manage.py collectstatic --noinput
 RUN adduser -D app
 USER app
 
-CMD gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
+#CMD gunicorn brieflyMain.wsgi:application --bind 0.0.0.0:$PORT
+CMD python manage.py runserver 0.0.0.0:8000

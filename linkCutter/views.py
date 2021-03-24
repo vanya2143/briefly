@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .forms import AddUserLinkForm
 from .models import Link
 
@@ -11,17 +12,16 @@ def home_page(request):
 
 
 class UserLinks(LoginRequiredMixin, CreateView):
-
     def get(self, request, *args, **kwargs):
         links = Link.objects.filter(creator=self.request.user)
 
-        page_content = {
+        context = {
             'title': "Ссылки",
             'form': AddUserLinkForm,
             'links': links,
         }
 
-        return render(request, 'linkCutter/links_page.html', page_content)
+        return render(request, 'linkCutter/links_page.html', context=context)
 
     def post(self, request, *args, **kwargs):
         form = AddUserLinkForm(request.POST)
@@ -30,7 +30,6 @@ class UserLinks(LoginRequiredMixin, CreateView):
             form.instance.creator = self.request.user
             form.save()
 
-            # Перенаправляем пользователя на только что созданный курс
             return redirect('links-page')
 
         return render(request, 'linkCutter/links_page.html', {'form': form})

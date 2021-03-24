@@ -125,6 +125,6 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 LOGIN_URL = 'user'
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = '/links/'
 
 django_heroku.settings(locals())

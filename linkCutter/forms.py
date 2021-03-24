@@ -4,7 +4,6 @@ from django.core.exceptions import ValidationError
 
 
 class AddUserLinkForm(forms.ModelForm):
-
     def __init__(self, *args, **kwargs):
         super(AddUserLinkForm, self).__init__(*args, **kwargs)
 
